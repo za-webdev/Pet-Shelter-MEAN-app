@@ -1,0 +1,16 @@
+
+<div class="main">
+<h1>These pets are looking for home!</h1>
+<a href="new">Add a pet to the shelter </a>
+
+  	<div *ngIf="pets">
+	<div *ngFor="let pet of pets" class="box">
+	
+	<h4>Pet Name:</h4> <p>{{pet.name}}</p>
+	<h4>Pet Type:</h4> <p>{{pet.type}}</p>
+	<h4>Description:</h4> <p>{{pet.description}}</p>
+	
+	<button class="btn btn-primary" [routerLink]="['/show/'+pet._id]">Details</button>
+	<button class="btn btn-primary" [routerLink]="['/edit/'+pet._id]">Edit</button>
+</div>
+</div>

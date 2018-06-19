@@ -1,0 +1,62 @@
+
+<h3>Edit This Pet</h3>
+
+<div *ngIf="editpet">
+<div class="container">
+<form (submit)="update()">
+  <div class="form-group">
+    <label>Pet Name:</label>
+    <input type="text"
+     class="form-control"
+      [(ngModel)]='editpet.name'
+        name='editpet.name'
+        required
+        minlength="3" 
+        maxlength="24"
+        #name="ngModel" 
+       ><p *ngIf="!name.valid && !name.pristine" style="color: red"> Name must be 3 characters long</p>
+  </div>
+   <div class="form-group">
+    <label>Pet Type:</label>
+    <input type="text"
+     class="form-control"
+      [(ngModel)]='editpet.type'
+        name='editpet.type'
+        required
+        minlength="3" 
+        maxlength="24"
+        #type="ngModel" 
+       ><p *ngIf="!type.valid && !type.pristine" style="color: red"> Type must be 3 characters long</p>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea type="text"
+     class="form-control"
+      [(ngModel)]='editpet.description'
+        name='editpet.description'
+        minlength="3" 
+        maxlength="255"
+        #description="ngModel"
+        ></textarea>
+        <p *ngIf="!description.valid && !description.pristine" style="color: red"> Description must be 3 characters long</p>
+  </div>
+  <h4>Skills (optional):</h4>
+  <div class="form-group">
+    <label>Skill 1:</label>
+    <input type="text" class="form-control" [(ngModel)]='editpet.skill_1' name='editpet.skill_1'>
+  </div>
+  <div class="form-group">
+    <label>Skill 2:</label>
+    <input type="text" class="form-control" [(ngModel)]='editpet.skill_2' name='editpet.skill_2'>
+  </div>
+  <div class="form-group">
+    <label>skill 3:</label>
+    <input type="text" class="form-control" [(ngModel)]='editpet.skill_3' name='editpet.skill_3'>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Edit pet </button>
+  <button class="btn btn-primary" [routerLink]="['']"> Cancel</button>
+
+</form>
+</div>
+</div>
